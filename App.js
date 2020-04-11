@@ -1,16 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'react-native'
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import SearchScreen from './src/screens/SearchScreen';
 
-/* const navigator = createStackNavigator({
+StatusBar.setBarStyle('dark-content');
 
-}); */
+const headerStyle = {
+  
+}
+
+const navigator = createStackNavigator({
+  Search: SearchScreen,
+},{
+  initialRouteName: 'Search',
+  defaultNavigationOptions: {
+    title: 'hello',
+    headerStyle: headerStyle
+  }
+});
+
+export default createAppContainer(navigator);
+
+/* const AppContainer = createAppContainer(navigator);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>juuuuukeli</Text>
+    <View>
+      <AppContainer />
     </View>
   );
 }
@@ -21,9 +38,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+
   },
-});
+}); */
 
 
+
+// YELP STUFF
 // client id ZWU8CccgSjJcDx-4DUu92g
 // api key -VRBQGxVcT3ilzaRTUXDwrUkt39x4PsNiVVORJYjWlgzJHt5EFMEotVWZMn5nw2-NgzNNBDiK5TQf6IJNoVDegtmOVmEHrPwaobqZsyZIWouoXvPrJ9dek5xQmFNXnYx
