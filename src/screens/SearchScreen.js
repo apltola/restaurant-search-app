@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Animated, View, Text, StyleSheet, Dimensions } from 'react-native';
+import { iosColors } from '../util/globalStyles';
 import AwesomeAlert from 'react-native-awesome-alerts';
 //     https://www.npmjs.com/package/react-native-alert-pro
 import useRestaurants from '../hooks/useRestaurants';
@@ -39,7 +40,7 @@ const SearchScreen = () => {
         showConfirmButton={true}
         cancelText=""
         confirmText="     OK     "
-        confirmButtonColor="#DD6B55"
+        confirmButtonColor={iosColors.red}
         onCancelPressed={() => setShowErrorDialog(false)}
         onConfirmPressed={() => setShowErrorDialog(false)}
       />
