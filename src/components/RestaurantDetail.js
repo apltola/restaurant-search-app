@@ -4,7 +4,7 @@ import { iosColors } from '../util/globalStyles';
 
 const RestaurantDetail = ({ item }) => {
   return (
-    <View>
+    <View style={styles.detail}>
       {item.image_url !== ''
         ? <Image style={styles.image} source={{ uri: item.image_url }} />
         : <View style={styles.blankImage} />
@@ -17,6 +17,9 @@ const RestaurantDetail = ({ item }) => {
 }
 
 const styles = StyleSheet.create({
+  detail: {
+    paddingRight: 20,
+  },
   image: {
     width: 250,
     height: 125,
@@ -26,6 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: iosColors.black,
     width: 250,
     height: 125,
+    borderRadius: 5,
   },
   name: {
     fontWeight: 'bold',

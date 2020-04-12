@@ -11,7 +11,7 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 const SearchScreen = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState('sushi');
   const [searchApi, results, showErrorDialog] = useRestaurants();
 
   const filterRestaurantsByPrice = price => {
@@ -28,10 +28,10 @@ const SearchScreen = () => {
         onValueChange={setSearchTerm}
         onValueSubmit={() => searchApi(searchTerm)}
       />
-      <Animated.ScrollView>
-        <RestaurantList restaurants={filterRestaurantsByPrice('€')} title="Cost Effective" />
-        <RestaurantList restaurants={filterRestaurantsByPrice('€€')} title="Bit Pricier" />
-        <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender" />
+      <Animated.ScrollView contentContainerStyle={{/* paddingTop: 20 */}}>
+        <RestaurantList restaurants={filterRestaurantsByPrice('€')} title="Cost Effective €" />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€')} title="Bit Pricier €€" />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender €€€" />
         <View style={{marginTop: 50}}>
           <Text>
             results: {JSON.stringify(results, null, 2)}

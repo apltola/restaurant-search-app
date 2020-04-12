@@ -6,12 +6,12 @@ import { iosColors } from '../util/globalStyles';
 
 const RestaurantList = ({ title, restaurants }) => {
   return (
-    <View>
+    <View style={styles.restaurantList}>
       <Text style={styles.title}>
         {title}
       </Text>
       <FlatList
-        style={styles.restaurantList}
+        style={{paddingBottom: 15}}
         horizontal={true}
         data={restaurants}
         keyExtractor={r => r.id}
@@ -28,10 +28,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    paddingBottom: 5,
   },
   restaurantList: {
-    paddingBottom: 30,
-    paddingTop: 10
+    paddingBottom: 15,
+    paddingTop: 10,
+    borderWidth: 0,
   },
   divider: {
     backgroundColor: iosColors.grey,
