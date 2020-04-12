@@ -14,6 +14,13 @@ const SearchScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchApi, results, showErrorDialog] = useRestaurants();
 
+  const filterRestaurantsByPrice = price => {
+    // price === '€' || '€€' || '€€€'
+    return results.filter(v => {
+      return v.price === price;
+    })
+  }
+
   return (
     <View style={styles.container}>
       <SearchBar
@@ -22,7 +29,10 @@ const SearchScreen = () => {
         onValueSubmit={() => searchApi(searchTerm)}
       />
       <Animated.ScrollView>
-        <View style={{marginTop: 30}}>
+        <RestaurantList restaurants={filterRestaurantsByPrice('€')} title="Cost Effective" />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€')} title="Bit Pricier" />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender" />
+        <View style={{marginTop: 50}}>
           <Text>
             results: {JSON.stringify(results, null, 2)}
           </Text>
@@ -52,6 +62,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     minHeight: SCREEN_HEIGHT,
+    paddingHorizontal: 10,
   },
 });
 

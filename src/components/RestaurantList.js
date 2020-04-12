@@ -1,16 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import { Animated, View, Text, StyleSheet, Dimensions } from 'react-native';
+import { Animated, View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
+import { Divider } from 'react-native-elements';
+import RestaurantDetail from './RestaurantDetail';
+import { iosColors } from '../util/globalStyles';
 
-const RestaurantList = () => {
+const RestaurantList = ({ title, restaurants }) => {
   return (
     <View>
-      <Text>restaurants list....</Text>
+      <Text style={styles.title}>
+        {title}
+      </Text>
+      <FlatList
+        style={styles.restaurantList}
+        horizontal={true}
+        data={restaurants}
+        keyExtractor={r => r.id}
+        renderItem={({ item }) => {
+          return <RestaurantDetail item={item} />
+        }}
+      />
+      {/* <Divider style={styles.divider} /> */}
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  restaurantList: {
+    paddingBottom: 30,
+    paddingTop: 10
+  },
+  divider: {
+    backgroundColor: iosColors.grey,
+    marginBottom: 10,
+  }
 });
 
 export default RestaurantList;
