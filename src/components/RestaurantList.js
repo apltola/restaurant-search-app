@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Animated, View, Text, StyleSheet, Dimensions, FlatList } from 'react-native';
+import { Animated, View, Text, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { Divider } from 'react-native-elements';
 import RestaurantDetail from './RestaurantDetail';
 import { iosColors } from '../util/globalStyles';
 
-const RestaurantList = ({ title, restaurants }) => {
+const RestaurantList = ({ title, restaurants, navigation }) => {
   return (
     <View style={styles.restaurantList}>
       <Text style={styles.title}>
@@ -17,7 +18,11 @@ const RestaurantList = ({ title, restaurants }) => {
         data={restaurants}
         keyExtractor={r => r.id}
         renderItem={({ item }) => {
-          return <RestaurantDetail item={item} />
+          return (
+            <TouchableOpacity onPress={() => navigation.navigate('Restaurant', { item })}>
+              <RestaurantDetail item={item} />
+            </TouchableOpacity>
+          )
         }}
       />
       {/* <Divider style={styles.divider} /> */}
@@ -43,4 +48,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default RestaurantList;
+export default withNavigation(RestaurantList);

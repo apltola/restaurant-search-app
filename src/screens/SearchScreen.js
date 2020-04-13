@@ -28,10 +28,10 @@ const SearchScreen = () => {
         onValueChange={setSearchTerm}
         onValueSubmit={() => searchApi(searchTerm)}
       />
-      <Animated.ScrollView contentContainerStyle={{/* paddingTop: 20 */}}>
-        <RestaurantList restaurants={filterRestaurantsByPrice('€')} title="Cost Effective €" />
-        <RestaurantList restaurants={filterRestaurantsByPrice('€€')} title="Bit Pricier €€" />
-        <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender €€€" />
+      <Animated.ScrollView>
+        <RestaurantList restaurants={filterRestaurantsByPrice('€')}   title="Cost Effective €" />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€')}  title="Bit Pricier €€"   />
+        <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender €€€"  />
         <View style={{marginTop: 50}}>
           <Text>
             results: {JSON.stringify(results, null, 2)}
@@ -61,7 +61,8 @@ const SearchScreen = () => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
-    minHeight: SCREEN_HEIGHT,
+    flex: 1,
+    //minHeight: SCREEN_HEIGHT,
     //paddingHorizontal: 10,
   },
 });

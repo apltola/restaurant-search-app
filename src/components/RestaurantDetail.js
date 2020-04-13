@@ -21,7 +21,7 @@ const RestaurantDetail = ({ item }) => {
 
 const styles = StyleSheet.create({
   detail: {
-    paddingRight: 20,
+    marginRight: 20,
   },
   image: {
     width: 250,
