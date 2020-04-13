@@ -32,11 +32,12 @@ const SearchScreen = () => {
         <RestaurantList restaurants={filterRestaurantsByPrice('€')}   title="Cost Effective €" />
         <RestaurantList restaurants={filterRestaurantsByPrice('€€')}  title="Bit Pricier €€"   />
         <RestaurantList restaurants={filterRestaurantsByPrice('€€€')} title="Big Spender €€€"  />
-        <View style={{marginTop: 50}}>
+
+        {/* <View style={{marginTop: 50}}>
           <Text>
             results: {JSON.stringify(results, null, 2)}
           </Text>
-        </View>
+        </View> */}
       </Animated.ScrollView>
 
       <AwesomeAlert

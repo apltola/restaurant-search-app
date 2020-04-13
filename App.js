@@ -7,10 +7,6 @@ import RestaurantScreen from './src/screens/RestaurantScreen';
 
 StatusBar.setBarStyle('dark-content');
 
-const headerStyle = {
-  
-}
-
 const navigator = createStackNavigator(
   {
     Search: SearchScreen,
@@ -20,7 +16,6 @@ const navigator = createStackNavigator(
     initialRouteName: 'Search',
     defaultNavigationOptions: {
       //title: 'hello',
-      headerStyle: headerStyle,
     }
   }
 );

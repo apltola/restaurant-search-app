@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { Animated, View, Text, StyleSheet, Dimensions, FlatList, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { Divider } from 'react-native-elements';
 import RestaurantDetail from './RestaurantDetail';
-import { iosColors } from '../util/globalStyles';
 
 const RestaurantList = ({ title, restaurants, navigation }) => {
+  if (!restaurants.length) {
+    return null;
+  }
+
   return (
     <View style={styles.restaurantList}>
       <Text style={styles.title}>
@@ -25,7 +27,6 @@ const RestaurantList = ({ title, restaurants, navigation }) => {
           )
         }}
       />
-      {/* <Divider style={styles.divider} /> */}
     </View>
   )
 }
@@ -42,10 +43,6 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     borderWidth: 0,
   },
-  divider: {
-    backgroundColor: iosColors.grey,
-    marginBottom: 10,
-  }
 });
 
 export default withNavigation(RestaurantList);
