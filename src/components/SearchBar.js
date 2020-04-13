@@ -34,7 +34,8 @@ const styles = StyleSheet.create({
   container: {
     //borderColor: "goldenrod",
     //borderWidth: 2,
-    backgroundColor: "#fff"
+    backgroundColor: "#fff",
+    padding: 10,
   }
 });
 

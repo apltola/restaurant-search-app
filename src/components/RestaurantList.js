@@ -11,8 +11,9 @@ const RestaurantList = ({ title, restaurants }) => {
         {title}
       </Text>
       <FlatList
-        style={{paddingBottom: 15}}
+        style={{paddingBottom: 15, paddingLeft: 10,}}
         horizontal={true}
+        showsHorizontalScrollIndicator={false}
         data={restaurants}
         keyExtractor={r => r.id}
         renderItem={({ item }) => {
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     paddingBottom: 5,
+    paddingLeft: 10,
   },
   restaurantList: {
     paddingBottom: 15,

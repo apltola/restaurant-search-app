@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     minHeight: SCREEN_HEIGHT,
-    paddingHorizontal: 10,
+    //paddingHorizontal: 10,
   },
 });
 

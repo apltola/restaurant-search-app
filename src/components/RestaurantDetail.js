@@ -12,6 +12,9 @@ const RestaurantDetail = ({ item }) => {
       <Text style={styles.name}>
         {item.name}
       </Text>
+      <Text>
+        {item.rating}/5 Stars  ·  {item.review_count} {item.review_count > 1 ? 'Reviews' : 'Review'}
+      </Text>
     </View>
   )
 }
@@ -23,13 +26,13 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 125,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   blankImage: {
     backgroundColor: iosColors.black,
     width: 250,
     height: 125,
-    borderRadius: 5,
+    borderRadius: 10,
   },
   name: {
     fontWeight: 'bold',
